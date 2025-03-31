@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+    environment:
+      NODE_ENV: production
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      #DB_PASSWORD: contraseña
+      DB_DATABASE: financial_bank
+    networks:
+      - app_network
+    volumes:
+      - ./backend:/app
+    command: ["npm", "run", "dev"]
+
+  frontend:
+    build:
+     context: .
+     dockerfile:  Dockerfile.frontend
+    ports:
+      - "3002:80"
+    volumes:
+      - ./frontend:/app
+    environment:
+      NODE_ENV: production
+
+    networks:
+      - app_network
+
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Admin1234
+      MYSQL_DATABASE: 'financial_bank'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./financialBank.sql:/docker-entrypoint-initdb.d/financialBank.sql
+    networks:
+      - app_network
+
+volumes:
+  mysql_data:
+
+networks:
+  app_network:
+    driver: bridge
