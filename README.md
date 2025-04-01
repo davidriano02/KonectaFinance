@@ -40,8 +40,8 @@ KonectaFinance es una aplicación de autenticación  gestión de usuarios y vent
 1. **Clonar el repositorio**
 
     ```bash
-    https://github.com/davidriano02/sdh_inc_chat.git
-    cd sdh-inc-chat
+    https://github.com/davidriano02/KonectaFinance.git
+    cd KonectaFinance
     ```
 
 2. **Configurar el archivo `.env`**
