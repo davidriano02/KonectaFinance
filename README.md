@@ -54,6 +54,9 @@ KonectaFinance es una aplicación de autenticación  gestión de usuarios y vent
     MYSQL_USER=tu_usuario
     MYSQL_PASSWORD=tu_contraseña
     JWT_SECRET= Genera un JWTSECRETC para hacer pruebas
+
+    Configura en el .env del frontend
+    VITE_API_URL= url_backend
     ```
 
 3. **Construir y levantar los contenedores**
