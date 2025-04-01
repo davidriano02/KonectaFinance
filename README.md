@@ -154,15 +154,25 @@ Si prefieres instalar y ejecutar la aplicación sin Docker, sigue estos pasos:
 
 1. Inicio de Sesión.
    
+![image](https://github.com/user-attachments/assets/b9a514a3-4a5d-44c1-a7b5-46f197e478ff)
 
 
 2. interfaz del administrador.
    
+![image](https://github.com/user-attachments/assets/331eea0f-1f6c-4ca9-b9f0-c557e6652cb5)
+![image](https://github.com/user-attachments/assets/55d58822-c941-4b59-852e-d54ef4506b0b)
+![image](https://github.com/user-attachments/assets/5fc6ee4f-5b91-4580-a936-109a39b36f23)
+
 
 
 3. Interfaz del Asesro
 
-  
+  ![image](https://github.com/user-attachments/assets/f6962cb2-6524-4371-b2fc-09106e473c88)
+  ![image](https://github.com/user-attachments/assets/004b9f14-fafe-490f-aa7c-f75063ba3bb8)
+  ![image](https://github.com/user-attachments/assets/1afe00af-dfdf-4ea9-b797-e3a9e6e76822)
+
+
+
 
 5. Contenedor de Docker con Imagen del Servidor, CLiente (frontend)y base de datos .
    
