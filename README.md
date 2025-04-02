@@ -50,9 +50,9 @@ KonectaFinance es una aplicación de autenticación  gestión de usuarios y vent
 
     ```
     MYSQL_ROOT_PASSWORD=tu_contraseña
-    MYSQL_DATABASE=sdh_inc_chat
+    MYSQL_DATABASE=bd en docker o localhost en local
     MYSQL_USER=tu_usuario
-    MYSQL_PASSWORD=tu_contraseña
+    MYSQL_PASSWORD=tu_contraseña debe ser igual a la que se agrega en el docker-compose.yml
     JWT_SECRET= Genera un JWTSECRETC para hacer pruebas
 
     Configura en el .env del frontend
@@ -65,7 +65,7 @@ KonectaFinance es una aplicación de autenticación  gestión de usuarios y vent
     docker-compose up --build
     ```
 
-    La aplicación debería estar corriendo en `http://localhost:3000`.
+    La aplicación debería estar corriendo en `http://localhost:3001`.
 
 
 
@@ -145,7 +145,7 @@ Si prefieres instalar y ejecutar la aplicación sin Docker, sigue estos pasos:
     npm start
     ```
 
-    La aplicación debería estar corriendo en `http://localhost:3000`.
+    La aplicación debería estar corriendo en `http://localhost:5173`.
 
 ## **Uso**
 
