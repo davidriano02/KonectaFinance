@@ -8,12 +8,13 @@ services:
     ports:
       - "3001:3001"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      NODE_ENV: production
-      DB_HOST: host.docker.internal
+      NODE_ENV: dev
+      DB_HOST: db
       DB_USER: root
-      #DB_PASSWORD: contraseña
+      DB_PASSWORD: ""
       DB_DATABASE: financial_bank
     networks:
       - app_network
@@ -23,24 +24,23 @@ services:
 
   frontend:
     build:
-     context: .
-     dockerfile:  Dockerfile.frontend
+      context: .
+      dockerfile: Dockerfile.frontend
     ports:
-      - "3002:80"
+      - "5173:5173"
     volumes:
       - ./frontend:/app
     environment:
       NODE_ENV: production
-
     networks:
       - app_network
 
   db:
-    image: mysql:latest
+    image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: Admin1234
-      MYSQL_DATABASE: 'financial_bank'
+      MYSQL_ROOT_PASSWORD: "Admin*"
+      MYSQL_DATABASE: financial_bank
     ports:
       - "3306:3306"
     volumes:
@@ -48,6 +48,12 @@ services:
       - ./financialBank.sql:/docker-entrypoint-initdb.d/financialBank.sql
     networks:
       - app_network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      retries: 10
+      start_period: 30s  # Aumenté el tiempo para dar más margen al inicio
+      timeout: 10s
 
 volumes:
   mysql_data:
